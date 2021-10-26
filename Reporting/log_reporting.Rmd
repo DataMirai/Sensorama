@@ -1,0 +1,41 @@
+---
+title: "Project log reporting"
+author: "Aitor Gonzalez"
+date: "26/10/2021"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+The main purpose of this document consists in the creation of a guideline so that in the long run  
+all the processes that gives issues can be registered in order  to identify all the issues along the project and how they were solved if similar problems are encountered in the future, they can be identified and solved much more easily. 
+
+In addition, it allows for a certain degree of control of the procediments.
+
+***
+
+## "2021-10-20 11:00 CEST"
+
+* The Github project was setted in the repository [https://github.com/DataMirai/Sensorama](https://github.com/DataMirai/Sensorama) which posses:
+  + had the documentation necessary in a chemical level and few R libraries to do the job
+  + The file **Original_odor_relations.JSON** file in JSON format. Identified an **issue** with the import of this file to R
+
+***
+
+## "2021-10-26 12:30 CEST"
+
+1. Solved the problem to import the data **Original_odor_relations.JSON**: **wrongly parsed**. 
+  + R does not reported the line in which there was a mistake,  so was not possible to identify *in site* the nature of the issue. only points that trails gargabe.
+  ![aaaa](Captures/Capture1_message_JSON.png) 
+ 
+ + Used [https://codebeautify.org/jsonviewer](https://codebeautify.org/jsonviewer) as a tool to 
+ track an arrange the JSON data, identified the problem in **line 18282**, there were ][ symbols 
+ placed in the middle of the JSON structure.
+ 
+ + The data was no duplicated, it seems that only misstracked something in the process of its creation.
+
+
+2. Added the **compounds.csv** dataset to the environment, linked by the *cid* variable
+
+***
+
