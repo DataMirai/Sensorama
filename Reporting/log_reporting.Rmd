@@ -39,3 +39,11 @@ In addition, it allows for a certain degree of control of the procediments.
 
 ***
 
+## "2021-10-27 17:14 CEST"
+
+It was decided to use the package **ChemmineR** to extract all the fingerprints from the molecules
+
+## "2021-10-29 12:31 CEST"
+
+identified conflicting molecules with the ChemmineR methodology. in concrete molecules with $cid = ("222","14923", "25519")$, which corresponds to Nitrogen and Amonia derivates. To solve the conflict they has been removed.
+
