@@ -1,5 +1,16 @@
 if(!require("pacman")){install.packages("pacman")}
-pacman::p_load(tidyverse, jsonlite , utils,BiocManager,ChemmineR,ChemmineOB, grid, ggplotify)
+pacman::p_load(tidyverse, # to arrange all stuff and functional programming
+               jsonlite, # to read the data with FromJSON
+               utils, 
+               BiocManager,
+               ChemmineR,
+               ChemmineOB, 
+               grid, 
+               ggplotify,
+               rcdk)
+
+
+
 
 # Data importing -------------------------------------------------------------------------------
   # In this case the data is already prepared and only required its importation straightforwardly,

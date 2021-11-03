@@ -27,6 +27,8 @@ In addition, it allows for a certain degree of control of the procediments.
 1. Solved the problem to import the data **Original_odor_relations.JSON**: **wrongly parsed**. 
   + R does not reported the line in which there was a mistake,  so was not possible to identify *in site* the nature of the issue. only points that trails gargabe.
   ![aaaa](Captures/Capture1_message_JSON.png) 
+  
+  
  
  + Used [https://codebeautify.org/jsonviewer](https://codebeautify.org/jsonviewer) as a tool to 
  track an arrange the JSON data, identified the problem in **line 18282**, there were ][ symbols 
@@ -47,3 +49,10 @@ It was decided to use the package **ChemmineR** to extract all the fingerprints 
 
 identified conflicting molecules with the ChemmineR methodology. in concrete molecules with $cid = ("222","14923", "25519")$, which corresponds to Nitrogen and Amonia derivates. To solve the conflict they has been removed.
 
+
+## 2021-11-03 20:58:17 CET
+
+There where issues about getting the fingerprints 
+BiocManager,
+               ChemmineR,
+               ChemmineOB
