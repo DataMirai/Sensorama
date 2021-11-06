@@ -52,7 +52,20 @@ identified conflicting molecules with the ChemmineR methodology. in concrete mol
 
 ## 2021-11-03 20:58:17 CET
 
-There where issues about getting the fingerprints 
-BiocManager,
-               ChemmineR,
-               ChemmineOB
+There where issues about getting the fingerprints with **BiocManager, ChemmineR and ChemmineOB** packages. To solve these  issues, it was included the use of the **rcdk** package, which is different than the 
+previous ones to extract fingerprints and molecules descriptors.  
+
+To use de rcdk package it is required to use **Java** in the computer, so install Java from other sources like
+[https://www.oracle.com/java/technologies/downloads/]{https://www.oracle.com/java/technologies/downloads/}
+
+## "2021-11-06 01:47:11 CET"
+
+The tibble data format that has been created all along can be exportable in JSON fromat. A security copy of the process has been saved in *Data/Sensorama_JSON.json*, If it was necessary to export or anything else, can be recovered using in R environment:
+
+```{r}
+#fromJSON("Data/Sensorama_JSON.json") %>%
+#  as_tibble()
+```
+Furthermore, the data has been arranged in script 1 to be parallelize data management phase. The method used to construct the special structures sdf and parsed.smiles forms are paralelized with the  **future_map** from the **furrr** library.
+Further documentation of the method can be found here
+{http://zevross.com/blog/2019/02/12/dramatically-speed-up-your-r-purrr-functions-with-the-furrr-package/}

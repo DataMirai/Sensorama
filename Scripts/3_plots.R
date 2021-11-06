@@ -27,7 +27,7 @@ for(cid in head(df_nested$cid)){
 }
 
 
-test_cid <- 49 
+test_cid <- 4
 
 plot_molecule(test_cid)
 dev.copy(png, filename= paste("Plots/PNG/",test_cid,"_plot.png", sep = "")) 
