@@ -1,4 +1,9 @@
-source("Scripts/1_data_import_arranging.r")
+if(!require("pacman")){install.packages("pacman")}
+pacman::p_load(tidyverse, # to arrange all stuff and functional programming
+               jsonlite, # to read the data with FromJSON
+               utils, BiocManager, ChemmineR, ChemmineOB, grid, ggplotify, rcdk, furrr)
+
+dF_Sensorama <- read_rds('Data/DF_Sensorama.rds')
 
 df_nested 
 

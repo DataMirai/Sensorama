@@ -15,8 +15,55 @@ pacman::p_load(tidyverse, # to arrange all stuff and functional programming
   # In this case the data is already prepared and only required its importation straightforwardly,
   # This data has been provided from the UAB bioinformatics team
 
-odour <- fromJSON("Data/odor_relations.json", flatten = T)
-compounds <- read.csv("Data/compounds.csv")
+
+compounds <- read.csv("Data/compounds.csv") %>%  as_tibble()
+
+odour <- fromJSON("Data/odor_relations.json", flatten = T) %>%  as_tibble() %>% 
+  mutate(
+    name= str_replace_all(name,'almond bitter almond','bitter almond'),
+    name= str_replace_all(name,'peanut roasted peanut','roasted peanut'),
+    name= str_replace_all(name,'rose dried rose','dried rose'),
+    name= str_replace_all(name,'apple green apple','green apple'),
+    name= str_replace_all(name,'fruit overripe fruit','overripe fruit'),
+    name= str_replace_all(name,'fruit tropical fruit','tropical fruit'),
+    name= str_replace_all(name,'coffee roasted coffee','roasted coffee'),
+    name= str_replace_all(name,'pepper black pepper','black pepper'),
+    name= str_replace_all(name,'cherry maraschino cherry','maraschino cherry'),
+    name= str_replace_all(name,'chocolate dark chocolate','dark chocolate'),
+    name= str_replace_all(name,'cherry maraschino cherry','maraschino cherry'),
+    name= str_replace_all(name,'licorice black licorice','black licorice'),
+    name= str_replace_all(name,'potato raw potato','raw potato'),
+    name= str_replace_all(name,'meaty roasted meaty','roasted meaty'),
+    name= str_replace_all(name,'fruit ripe fruit','ripe fruit'),
+    name= str_replace_all(name,'banana unripe banana','unripe banana'),
+    name= str_replace_all(name,'currant black currant','black currant'),
+    name= str_replace_all(name,'cloth laundered cloth','laundered cloth'),
+    name= str_replace_all(name,'hazelnut roasted hazelnut','roasted hazelnut'),
+    name= str_replace_all(name,'barley roasted barley','roasted barley'),
+    name= str_replace_all(name,'grain toasted grain','grain toasted grain'),
+    name= str_replace_all(name,'currant bud black currant bud','black currant bud'),
+    name= str_replace_all(name,'pepper bell pepper','bell pepper'),
+    name= str_replace_all(name,'almond roasted almond','roasted almond'),
+    name= str_replace_all(name,'cheesy limburger cheese','limburger cheese'),
+    name= str_replace_all(name,'sugar burnt sugar','burnt sugar'),
+    name= str_replace_all(name,'tea black tea','black tea'),
+    name= str_replace_all(name,'sugar brown sugar','brown sugar'),
+    name= str_replace_all(name,'onion cooked onion','cooked onion'),
+    name= str_replace_all(name,'apple cooked apple','cooked apple'),
+    name= str_replace_all(name,'banana ripe banana','ripe banana'),
+    name= str_replace_all(name,'sausage smoked sausage','smoked sausage'),
+    name= str_replace_all(name,'potato baked potato','baked potato'),
+    name= str_replace_all(name,'bean green bean','green bean'),
+    name= str_replace_all(name,'pea green pea','green pea'),
+    name= str_replace_all(name,'chicken roasted chicken','roasted chicken'),
+    name= str_replace_all(name,'beefy roasted beefy','roasted beefy'),
+    name= str_replace_all(name,'cheesy parmesan cheese','parmesan cheese'),
+    name= str_replace_all(name,'woody burnt wood','burnt wood'),
+    name= str_replace_all(name,'almond toasted almond','toasted almond'),
+    name= str_replace_all(name,'tea green tea','green tea'),
+    name= str_replace_all(name,'cheesy feta cheese','feta cheese'),
+    name= str_replace_all(name,'cheesy bleu cheese','blue cheese'),
+    name= str_replace_all(name,'orange bitter orange','bitter orange'))
 
 ## Data checks --------------------------------------------------------------------------------------
   # Seems to be duplicated data cases, just point to control
@@ -88,4 +135,8 @@ df_nested <- df_nested %>%
 #   toJSON() %>%
 #   write("Data/Sensorama_JSON.json")
 
+df_nested
+
 rm(list=setdiff(ls(), "df_nested"))
+
+saveRDS(df_nested, 'Data/DF_Sensorama.rds')
